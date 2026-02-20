@@ -15,5 +15,5 @@
 - [x] Verify memory loads
 - [x] Test TTS
 - [x] Set up research directory structure
-- [ ] Test smart-memory.py
-- [ ] Push updates to GitHub
+- [x] Test smart-memory.py
+- [x] Push updates to GitHub
