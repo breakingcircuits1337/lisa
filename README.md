@@ -58,7 +58,9 @@ python3 bin/memory.py
 
 ## Memory System
 
-LISA uses a 7-layer memory hierarchy:
+LISA uses a **Smart Memory System** with priority-based retrieval:
+
+### 7-Layer Hierarchy
 - LONG_TERM - Permanent memories
 - SOUL - Core values
 - USER - User information
@@ -66,6 +68,22 @@ LISA uses a 7-layer memory hierarchy:
 - AGENTS - Instructions
 - MEDIUM_TERM - Cross-session learnings
 - SHORT_TERM - Current session
+
+### Smart Priority System
+Each memory layer has a priority score based on:
+- **Access frequency** - How often used (30%)
+- **Recency** - How recently accessed (40%)
+- **Importance** - Manual + learned (30%)
+
+LISA remembers what matters most to you.
+
+```bash
+# Standard memory load
+python3 bin/memory.py
+
+# Smart priority load (shows priorities)
+python3 bin/smart-memory.py
+```
 
 ## Research Areas
 
