@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+import os
+import sys
+
+if len(sys.argv) < 2:
+    print("Usage: speak 'message'")
+    sys.exit(1)
+
+# Use the main TTS but add LISA prefix
+message = "LISA: " + " ".join(sys.argv[1:])
+
+# Call the main speak script
+os.system(f'/home/bc/bin/speak "{message}"')

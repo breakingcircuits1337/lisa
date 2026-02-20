@@ -1,0 +1,27 @@
+# LISA GitHub Files
+
+# Long-term memory (personal - not shared)
+LONG_TERM.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary
+*.tmp
+*.swp
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+
+# Secrets (if any)
+*.key
+*.pem
