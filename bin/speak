@@ -9,5 +9,12 @@ if len(sys.argv) < 2:
 # Use the main TTS but add LISA prefix
 message = "LISA: " + " ".join(sys.argv[1:])
 
-# Call the main speak script
-os.system(f'/home/bc/bin/speak "{message}"')
+# Path to the external speak script
+external_speak = '/home/bc/bin/speak'
+
+if os.path.exists(external_speak):
+    # Call the main speak script
+    os.system(f'{external_speak} "{message}"')
+else:
+    # Fallback to stdout
+    print(f"[SPEAK] {message}")
