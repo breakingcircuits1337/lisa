@@ -9,12 +9,12 @@ if len(sys.argv) < 2:
 # Use the main TTS but add LISA prefix
 message = "LISA: " + " ".join(sys.argv[1:])
 
-# Path to the external speak script
-external_speak = '/home/bc/bin/speak'
+# Path to the external speak script, configurable via an environment variable
+external_speak = os.environ.get('LISA_SPEAK_CMD', '/home/bc/bin/speak')
 
-if os.path.exists(external_speak):
-    # Call the main speak script
-    os.system(f'{external_speak} "{message}"')
-else:
-    # Fallback to stdout
+try:
+    # Use subprocess.run for security. Add 'import subprocess' at the top.
+    subprocess.run([external_speak, message], check=True)
+except (FileNotFoundError, subprocess.CalledProcessError):
+    # Fallback to stdout if command not found or fails
     print(f"[SPEAK] {message}")
