@@ -16,5 +16,5 @@
 
 ## TTS
 
-- Script: `/home/bc/Desktop/LISA-clone/bin/speak`
+- Script: `bin/speak`
 - Use for verbalizing discoveries
