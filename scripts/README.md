@@ -1,46 +1,43 @@
 # LISA Setup Scripts
 
-This directory contains scripts to set up LISA with OpenCode.
+This directory contains optional setup helpers for integrating LISA with OpenCode.
 
-## Quick Install
+## Important safety note
+
+`scripts/setup.sh` is side-effecting. It can:
+
+- clone OpenCode into `$HOME/opencode-lisa`,
+- install dependencies with Bun or npm,
+- build OpenCode,
+- copy LISA files into `$HOME/.lisa`,
+- write OpenCode config/theme paths under `$HOME`.
+
+For basic LISA inspection, **do not run this script**. Use the plain Python quickstart from the root README instead.
+
+## Optional install
 
 ```bash
-# Clone LISA
 git clone https://github.com/breakingcircuits1337/lisa.git
-
-# Run setup
 cd lisa
 ./scripts/setup.sh
 ```
 
-## What It Does
+Options:
 
-1. Clones OpenCode from `anomalyco/opencode` (the original)
-2. Installs dependencies
-3. Builds OpenCode
-4. Applies BC customizations (if available)
-5. Installs LISA personality
+```bash
+./scripts/setup.sh --help
+./scripts/setup.sh --skip-lisa
+./scripts/setup.sh --force
+```
 
 ## Requirements
 
-- bun or npm
+- Python 3 for LISA itself
 - git
+- Bun or npm only if you use the OpenCode setup script
 
-## First Run
-
-```bash
-# Initialize LISA
-python3 ~/.lisa/bin/wake.py
-```
-
-## Manual Setup
-
-If you already have OpenCode:
+## First LISA run after optional install
 
 ```bash
-# Add LISA
-cp -r lisa ~/
-
-# Initialize
 python3 ~/.lisa/bin/wake.py
 ```

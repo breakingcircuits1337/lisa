@@ -1,23 +1,14 @@
-# SHORT_TERM - Current Session
+# SHORT_TERM - Current Session Template
 
-> Active research tasks
+> Active session notes. Keep this lightweight; promote durable lessons to `MEDIUM_TERM.md` when they survive more than one session.
 
-## Today's Research
+## Active Tasks
 
-- Setting up LISA clone environment ✓
-- Configuring memory system ✓
-- Establishing research framework ✓
-- Created smart-memory.py with priority scoring ✓
-- Tested Easter egg (type "66" or "order") ✓
-- Added continuous learning v3 with hooks ✓
-- Auto-priority boosting implemented ✓
+- [ ] Initialize LISA with `python3 bin/wake.py` if `LONG_TERM.md` does not exist.
+- [ ] Load memory with `python3 bin/memory.py` or inspect priority scoring with `python3 bin/smart-memory.py`.
+- [ ] Record current-session experiments here.
 
-## Tasks
+## Scratchpad
 
-- [x] Verify memory loads
-- [x] Test TTS
-- [x] Set up research directory structure
-- [x] Test smart-memory.py
-- [x] Push updates to GitHub
-- [x] Add continuous learning hooks
-- [x] Push v3 to GitHub
+- Add temporary notes here.
+- Remove or promote them before publishing personal forks.

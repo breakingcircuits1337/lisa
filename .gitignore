@@ -1,7 +1,11 @@
 # LISA GitHub Files
 
-# Long-term memory (personal - not shared)
+# Local/generated memory state (personal - not shared)
 LONG_TERM.md
+.learning_log.json
+
+# Optional local state directory for future experiments
+.lisa-local/
 
 # OS
 .DS_Store
