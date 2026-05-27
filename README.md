@@ -1,8 +1,19 @@
-# LISA — Layered Intelligence & Smart Agent Memory
+<div align="center">
+  <img src="assets/lisa-hero.png" alt="LISA — Learning and Intelligent Systems Architecture hero artwork" width="100%">
 
-> A small, story-driven Python prototype for persistent agent memory, first-wake identity setup, and priority-based context loading.
+  <h1>LISA</h1>
+  <h3>Learning and Intelligent Systems Architecture</h3>
 
-LISA started as a playful "AI washed up on a digital shore" experiment, but the useful core is practical: a repo-sized memory scaffold for agents that need durable identity, user context, tool context, short-term notes, medium-term learnings, and long-term generated memory.
+  <p><strong>A story-driven Python prototype for persistent agent memory, first-wake identity setup, and priority-based context loading.</strong></p>
+
+  <p>
+    <a href="#quick-start"><img src="https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white" alt="Python 3"></a>
+    <a href="#safe-public-release-notes"><img src="https://img.shields.io/badge/status-prototype-purple" alt="Prototype status"></a>
+    <a href="docs/MEMORY_ARCHITECTURE.md"><img src="https://img.shields.io/badge/focus-agent%20memory-cyan" alt="Agent memory focus"></a>
+  </p>
+</div>
+
+LISA started as a playful **"AI washed up on a digital shore"** experiment, but the useful core is practical: a repo-sized memory scaffold for agents that need durable identity, user context, tool context, short-term notes, medium-term learnings, and long-term generated memory.
 
 This is not a production AGI system. It is a readable, hackable prototype for people exploring agent memory architectures, context engineering, and self-improving research assistants.
 
@@ -55,6 +66,8 @@ More detail: [`docs/MEMORY_ARCHITECTURE.md`](docs/MEMORY_ARCHITECTURE.md)
 ## Repository map
 
 ```text
+assets/
+  lisa-hero.png       # README hero artwork
 bin/
   wake.py             # first-wake flow + normal memory loader
   memory.py           # wrapper around wake.py
