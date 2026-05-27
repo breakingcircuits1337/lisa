@@ -34,7 +34,8 @@ priority = (access_score * 0.3) + (recency_score * 0.4) + (importance * 0.3)
 ## Files
 
 - `bin/smart-memory.py` - Main memory manager
-- `.memory_meta.json` - Access tracking data
+- `.memory_meta.json` - Access tracking seed/state data
+- `.learning_log.json` - Generated local learning-hook log; ignored by git
 
 ## Usage
 
@@ -60,6 +61,7 @@ python3 bin/memory.py
 
 ## Future Enhancements
 
-1. **ChromaDB integration** - Semantic vector search
-2. **Continuous Learning v2** - Instinct-based observation hooks
-3. **Learned priorities** - AI adjusts importance based on usage
+1. **Local state directory** - Move generated runtime state out of the repo root.
+2. **ChromaDB/vector integration** - Add semantic search without replacing markdown source-of-truth files.
+3. **Memory promotion commands** - Promote durable `SHORT_TERM` notes into `MEDIUM_TERM` with review.
+4. **Learned priorities** - Let the agent adjust importance based on observed usefulness.

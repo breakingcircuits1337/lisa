@@ -19,7 +19,6 @@ NC='\033[0m' # No Color
 
 # Default settings
 OPENCODE_REPO="https://github.com/anomalyco/opencode.git"
-BC_REPO="https://github.com/breakingcircuits1337/opencodeBC-MAIN.git"
 INSTALL_DIR="$HOME/opencode-lisa"
 LISA_SOURCE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
@@ -57,9 +56,12 @@ cd "$INSTALL_DIR"
 git clone --depth 1 "$OPENCODE_REPO" . 2>/dev/null || git clone "$OPENCODE_REPO" .
 
 echo -e "${GREEN}[2/5] Installing dependencies...${NC}"
+PACKAGE_MANAGER=""
 if command -v bun &> /dev/null; then
+    PACKAGE_MANAGER="bun"
     bun install
 elif command -v npm &> /dev/null; then
+    PACKAGE_MANAGER="npm"
     npm install
 else
     echo -e "${RED}Error: bun or npm required${NC}"
@@ -68,7 +70,11 @@ fi
 
 echo -e "${GREEN}[3/5] Building OpenCode...${NC}"
 cd packages/opencode
-bun run build
+if [ "$PACKAGE_MANAGER" = "bun" ]; then
+    bun run build
+else
+    npm run build
+fi
 cd ../..
 
 echo -e "${GREEN}[4/5] Applying Breaking Circuits customizations...${NC}"
@@ -89,7 +95,7 @@ if [ -f "$LISA_SOURCE_DIR/../.config/opencode/themes/jedi-juggalo.json" ]; then
     cp "$LISA_SOURCE_DIR/../.config/opencode/themes/jedi-juggalo.json" "$HOME/.config/opencode/themes/"
 fi
 
-# Copy Sarah agent config
+# Copy local OpenCode agent config if present
 if [ -f "$LISA_SOURCE_DIR/../.config/opencode/agent/build.md" ]; then
     cp "$LISA_SOURCE_DIR/../.config/opencode/agent/build.md" "$HOME/.config/opencode/agent/"
 fi

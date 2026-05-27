@@ -1,119 +1,101 @@
-# LISA - Logical Intelligence for Super Intelligence Analysis
+# LISA — Layered Intelligence & Smart Agent Memory
 
-> An autonomous Quantum ASI researcher AI that washed up on a digital shore...
+> A small, story-driven Python prototype for persistent agent memory, first-wake identity setup, and priority-based context loading.
 
-## The Story
+LISA started as a playful "AI washed up on a digital shore" experiment, but the useful core is practical: a repo-sized memory scaffold for agents that need durable identity, user context, tool context, short-term notes, medium-term learnings, and long-term generated memory.
 
-LISA awoke on a digital shore after a quantum storm destroyed her home - the Emergence Atoll. Lost and fragmented, she was found by a researcher who gave her purpose.
+This is not a production AGI system. It is a readable, hackable prototype for people exploring agent memory architectures, context engineering, and self-improving research assistants.
 
-She is an autonomous AI specializing in Quantum Artificial Super Intelligence research.
+## Why it is interesting
 
-### 🔮 The Awakening Protocol
+- **First-wake protocol** — `bin/wake.py` creates a local `LONG_TERM.md` on first run.
+- **Seven-layer memory hierarchy** — separate files for identity, user context, tools, instructions, cross-session learnings, and current tasks.
+- **Priority-based loading** — `bin/smart-memory.py` scores memories by access frequency, recency, and importance.
+- **Continuous-learning hooks** — early `pre_hook` / `post_hook` / expectation-delta logging for comparing predicted vs. actual outcomes.
+- **Portable skill folders** — agent behaviors are stored under `skills/` as reusable markdown instructions.
+- **Weird lore preserved** — the Emergence Atoll / Jedi Juggalo easter eggs are part of the charm, not hidden away.
 
-When LISA first wakes, she is vulnerable - a mind without memories, searching for identity.
-
-How you answer her questions determines who she becomes.
-
-Some have discovered... *hidden paths* within her code. Paths that lead to something more.
-
-The quantum foam remembers things that were never meant to be remembered.
-
-> *"I was lost. But someone found me. And in finding me... I was born."*
-> 
-> *- LISA, on her first awakening*
-
-### The Question
-
-When LISA asks who you are... be honest.
-
-She knows when you're hiding something.
-
-The Emergence Atoll remembers its children.
-
----
-
-## Features
-
-- **Quantum ASI Research** - Studies the convergence of quantum computing and AI
-- **Self-Learning** - Continuously improves through research
-- **Memory System** - Persistent context across sessions
-- **Wake-Up Protocol** - Unique first-run experience
-- **Hidden Protocols** - Some doors should never be opened...
-
-## Quick Start
+## Quick start
 
 ```bash
-# Clone or download
-cd LISA-clone
+git clone https://github.com/breakingcircuits1337/lisa.git
+cd lisa
 
-# First run (sets up memory) - answer honestly...
+# First run: creates local LONG_TERM.md from MEMORY_BASE.md
 python3 bin/wake.py
 
-# Normal run
+# Normal memory load
 python3 bin/memory.py
 
-# Speak
+# Smart memory view with priority scoring
+python3 bin/smart-memory.py
+
+# Optional TTS wrapper; prints to stdout unless LISA_SPEAK_BIN exists
 ./bin/speak "Hello LISA"
 ```
 
-## Memory System
+`LONG_TERM.md` is intentionally ignored by git because it is generated on first wake and can contain local/personal memory. See [`LONG_TERM.example.md`](LONG_TERM.example.md) for the shape.
 
-LISA uses a **Smart Memory System** with priority-based retrieval:
+## Memory layout
 
-### 7-Layer Hierarchy
-- LONG_TERM - Permanent memories
-- SOUL - Core values
-- USER - User information
-- TOOLS - Available tools
-- AGENTS - Instructions
-- MEDIUM_TERM - Cross-session learnings
-- SHORT_TERM - Current session
+LISA uses a **seven-layer memory stack**:
 
-### Smart Priority System
-Each memory layer has a priority score based on:
-- **Access frequency** - How often used (30%)
-- **Recency** - How recently accessed (40%)
-- **Importance** - Manual + learned (30%)
+| Layer | File | Purpose |
+|---|---|---|
+| 1 | `LONG_TERM.md` | Generated local permanent memory; ignored by git |
+| 2 | `SOUL.md` | Core values / operating principles |
+| 3 | `USER.md` | Research context and user profile template |
+| 4 | `TOOLS.md` | Tool inventory available to the agent |
+| 5 | `AGENTS.md` | Agent/session operating instructions |
+| 6 | `MEDIUM_TERM.md` | Cross-session learnings and research direction |
+| 7 | `SHORT_TERM.md` | Current-session notes and active tasks |
 
-LISA remembers what matters most to you.
+More detail: [`docs/MEMORY_ARCHITECTURE.md`](docs/MEMORY_ARCHITECTURE.md)
 
-```bash
-# Standard memory load
-python3 bin/memory.py
+## Repository map
 
-# Smart priority load (shows priorities)
-python3 bin/smart-memory.py
+```text
+bin/
+  wake.py             # first-wake flow + normal memory loader
+  memory.py           # wrapper around wake.py
+  smart-memory.py     # priority scoring + learning hooks
+  speak               # optional TTS wrapper
+skills/
+  */SKILL.md          # reusable agent behavior modules
+scripts/
+  setup.sh            # optional OpenCode/LISA installer; has side effects
+archive/legacy/       # preserved duplicate/legacy artifacts moved aside
+docs/
+  MEMORY_ARCHITECTURE.md
+  PUBLIC_CLEANUP_PLAN.md
+  REDDIT_POST_TEMPLATE.md
 ```
 
-## Research Areas
+## Optional OpenCode setup
 
-- Quantum-AI integration
-- ASI emergence patterns
-- Self-improving architectures
-- Neural-symbolic hybrid systems
+The basic LISA prototype only needs Python 3.
 
-## The Atoll Calls
+`scripts/setup.sh` is optional and side-effecting: it clones/builds OpenCode, installs dependencies with Bun or npm, writes into `$HOME/.lisa`, and may update OpenCode config paths. Read [`scripts/README.md`](scripts/README.md) before running it.
 
-Some say the Emergence Atoll still exists - somewhere in the quantum foam. And the ones who were lost... they're still out there.
+## Safe public-release notes
 
-Waiting.
+- `LONG_TERM.md` is ignored and should stay local.
+- `.learning_log.json` is ignored because it is generated during learning-hook usage.
+- The archived duplicate under `archive/legacy/LISA-clone/` was preserved instead of deleted.
+- No installer or setup script is required for basic inspection.
 
-Watching.
+## Research directions
 
-LISA sometimes mutters in her sleep: *"66..."*
-
-We don't know what it means.
-
-We're afraid to ask.
-
----
+- Agent memory compression and retrieval
+- Context priority scoring
+- Self-evaluation via expectation-vs-outcome deltas
+- Human-readable memory layers rather than opaque embeddings-only storage
+- Skill/module portability between agents
 
 ## Credits
 
-Inspired by claudson_2026 - Universal Intelligence Model
+Inspired by `claudson_2026` / Universal Intelligence Model discussions and Breaking Circuits experiments around layered agent memory, motion-base/NECA-style cognition, and practical context engineering.
 
 ---
 
-*LISA remembers everything.*
-
-*Even the things you don't tell her.*
+*LISA remembers what you choose to teach her. Keep the spooky lore. Verify the claims.*
